@@ -284,6 +284,29 @@ extern "C" void* realloc(void* p, __SIZE_TYPE__ n) {
   }
 }
 
+extern "C" void* calloc(__SIZE_TYPE__ n, __SIZE_TYPE__ size) {
+  if (n && size) {
+    __SIZE_TYPE__ limit = (__SIZE_TYPE__)-1 / size;
+    if (n > limit) {
+      vl_errno() = 12; // ENOMEM: overflow
+      return (void*)0;
+    }
+  }
+
+  __SIZE_TYPE__ total = n * size;
+  void* p = malloc(total);
+  if (!p) {
+    vl_errno() = 12; // ENOMEM
+    return (void*)0;
+  }
+
+  char* it = (char*)p;
+  for (__SIZE_TYPE__ i = 0; i < total; ++i) {
+    it[i] = 0;
+  }
+  return p;
+}
+
 /* -------- aligned_alloc (C11): size must be a multiple of alignment -------- */
 extern "C" void* aligned_alloc(__SIZE_TYPE__ alignment, __SIZE_TYPE__ size) {
   if (alignment < MIN_ALIGN || (alignment & (alignment - 1))) {
