@@ -22,15 +22,15 @@
 
 ### C Standard Library APIs 📋 PARTIALLY IMPLEMENTED
 
-#### Memory Management (70% Complete)
+#### Memory Management (80% Complete)
 - **malloc/free**: Core allocation via `vlmalloc.cpp` - ✅ Implemented
 - **Memory functions**: memcpy, memset, etc. in `mem_string.cpp` - ✅ Implemented
-- **Advanced allocators**: calloc, realloc - ❌ Not yet implemented
+- **Advanced allocators**: calloc, realloc - ✅ Implemented
 
-#### String Operations (60% Complete)
+#### String Operations (80% Complete)
 - **Basic strings**: strlen, strcpy, strcmp in `string.cppm` - ✅ Implemented
 - **Memory operations**: memcpy, memmove, memset - ✅ Implemented
-- **Extended functions**: strstr, strtok, etc. - ❌ Partially implemented
+- **Extended functions**: strstr, strtok, etc. - ✅ Implemented
 
 #### File System (50% Complete)
 - **File operations**: open, close, read, write in `fcntl.cppm`/`fs.cppm` - ✅ Basic implementation
