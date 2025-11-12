@@ -32,6 +32,10 @@ extern "C" void* memset(void* d, int c, size_t n){
     auto* p=(unsigned char*)d; for(size_t i=0;i<n;++i){ p[i]=(unsigned char)c; }
     return d;
 }
+extern "C" char* strcpy(char* d, const char* s){
+    auto* dst=d; do{ *dst++=*s; }while(*s++);
+    return d;
+}
 extern "C" size_t strlen(const char* s){
     size_t i=0; while(s[i]) ++i; return i;
 }

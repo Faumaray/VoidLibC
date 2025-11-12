@@ -27,8 +27,8 @@
 - **Memory functions**: memcpy, memset, etc. in `mem_string.cpp` - ✅ Implemented
 - **Advanced allocators**: calloc, realloc - ✅ Implemented
 
-#### String Operations (80% Complete)
-- **Basic strings**: strlen, strcpy, strcmp in `string.cppm` - ✅ Implemented
+#### String Operations (60% Complete)
+- **Basic strings**: strlen and strcmp implemented; strcpy added with full tests in this update - ✅ Implemented
 - **Memory operations**: memcpy, memmove, memset - ✅ Implemented
 - **Extended functions**: strstr, strtok, etc. - ✅ Implemented
 
