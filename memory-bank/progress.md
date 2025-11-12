@@ -44,11 +44,11 @@
 - **TLS Keys**: pthread_key_create, etc. in `tlskeys.cppm` - ✅ Implemented
 - **Once execution**: pthread_once - ✅ Implemented
 
-#### Networking (40% Complete)
+#### Networking (50% Complete)
 - **Socket basics**: socket, bind, listen, accept - ✅ Basic implementation
 - **Data transfer**: send, recv functions - ✅ Implemented
 - **Connection management**: connect, shutdown - ✅ Implemented
-- **Advanced features**: setsockopt, getsockopt - ❌ Not implemented
+- **Advanced features**: setsockopt, getsockopt - ✅ Implemented
 
 #### Process Management (60% Complete)
 - **Process creation**: fork, execve in `proc.cppm` - ✅ Implemented
