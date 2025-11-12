@@ -218,6 +218,27 @@ extern "C" void* malloc(__SIZE_TYPE__ n) {
   return (void*)((char*)nd + MIN_ALIGN);
 }
 
+extern "C" void* calloc(__SIZE_TYPE__ count, __SIZE_TYPE__ size) {
+  // Avoid overflow: if count * size would wrap, fail with ENOMEM.
+  if (count && size > (__SIZE_TYPE__)-1 / count) {
+    vl_errno() = 12; // ENOMEM
+    return (void*)0;
+  }
+
+  __SIZE_TYPE__ total = count * size;
+  void* p = malloc(total);
+  if (!p) {
+    vl_errno() = 12; // ENOMEM
+    return (void*)0;
+  }
+
+  unsigned char* bytes = (unsigned char*)p;
+  for (__SIZE_TYPE__ i = 0; i < total; ++i) {
+    bytes[i] = 0;
+  }
+  return p;
+}
+
 extern "C" void free(void* p) {
   if (!p) return;
 
