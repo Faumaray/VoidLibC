@@ -28,7 +28,7 @@
 - **Advanced allocators**: calloc, realloc - ❌ Not yet implemented
 
 #### String Operations (60% Complete)
-- **Basic strings**: strlen, strcpy, strcmp in `string.cppm` - ✅ Implemented
+- **Basic strings**: strlen and strcmp implemented; strcpy added with full tests in this update - ✅ Implemented
 - **Memory operations**: memcpy, memmove, memset - ✅ Implemented
 - **Extended functions**: strstr, strtok, etc. - ❌ Partially implemented
 
