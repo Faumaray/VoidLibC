@@ -8,8 +8,6 @@ import voidlibc.c.io;           // write()
 
 using namespace vl::sys::linux;
 
-// ---- syscalls we need
-static constexpr long SYS_exit_group = 231;
 
 // ---- simple atexit registry
 static pthread_mutex_t g_atexit_lock{0,0};

@@ -6,10 +6,6 @@ import voidlibc.c.time;
 
 using namespace vl::sys::linux;
 
-static constexpr int FUTEX_WAIT = 0;
-static constexpr int FUTEX_WAKE = 1;
-static constexpr int FUTEX_PRIVATE_FLAG = 128;
-
 extern "C" int sem_init(sem_t* s, int, unsigned int value) noexcept {
   s->val = (int)value; s->pad = 0; return 0;
 }
@@ -71,7 +67,7 @@ extern "C" int sem_timedwait(sem_t* s, const struct timespec* abstime) noexcept 
     }
     int neg = -1;
     if (__atomic_compare_exchange_n(&s->val, &v, neg, true, __ATOMIC_ACQ_REL, __ATOMIC_RELAXED)) {
-      long r = sc4(SYS_futex, (long)&s->val, FUTEX_WAIT | FUTEX_PRIVATE_FLAG, neg, (long)&rel);
+      long r = sc4(SYS_futex, (long)&s->val, (FUTEX_WAIT | FUTEX_PRIVATE_FLAG), neg, (long)&rel);
       if (r == -110) return 110; // ETIMEDOUT
     }
   }

@@ -5,10 +5,6 @@ import voidlibc.sys.linux;
 
 using namespace vl::sys::linux;
 
-static constexpr int FUTEX_WAIT = 0;
-static constexpr int FUTEX_WAKE = 1;
-static constexpr int FUTEX_PRIVATE_FLAG = 128;
-
 extern "C" int pthread_rwlock_init(pthread_rwlock_t* l, const pthread_rwlockattr_t*) noexcept {
   l->state = 0; l->wait_w = 0; l->wait_r = 0; l->pad = 0; return 0;
 }

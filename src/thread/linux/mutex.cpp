@@ -5,9 +5,6 @@ import voidlibc.sys.linux;
 
 using namespace vl::sys::linux;
 
-static constexpr int FUTEX_WAIT = 0;
-static constexpr int FUTEX_WAKE = 1;
-static constexpr int FUTEX_PRIVATE_FLAG = 128;
 static constexpr int EBUSY = 16;
 
 extern "C" int pthread_mutex_init(pthread_mutex_t* m, const pthread_mutexattr_t*) noexcept {

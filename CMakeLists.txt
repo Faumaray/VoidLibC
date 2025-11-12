@@ -62,7 +62,8 @@ target_sources(voidlibc
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
     target_sources(voidlibc PRIVATE
             src/core/linux/so_init.S
-            src/thread/trampoline_linux.S
+            src/thread/linux/trampoline.S
+            src/proc/linux/rt_sigreturn.S
     )
 elseif (CMAKE_SYSTEM_NAME STREQUAL "Windows")
     target_sources(voidlibc PRIVATE

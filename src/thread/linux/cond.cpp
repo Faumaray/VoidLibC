@@ -7,10 +7,6 @@ import voidlibc.c.time;      // clock_gettime
 
 using namespace vl::sys::linux;
 
-static constexpr int FUTEX_WAIT = 0;
-static constexpr int FUTEX_WAKE = 1;
-static constexpr int FUTEX_PRIVATE_FLAG = 128;
-
 extern "C" int pthread_cond_init(pthread_cond_t* c, const pthread_condattr_t*) noexcept {
   c->seq = 0; c->waiters = 0; c->pad[0]=c->pad[1]=0; return 0;
 }

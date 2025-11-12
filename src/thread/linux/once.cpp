@@ -5,10 +5,6 @@ import voidlibc.sys.linux;
 
 using namespace vl::sys::linux;
 
-static constexpr int FUTEX_WAIT = 0;
-static constexpr int FUTEX_WAKE = 1;
-static constexpr int FUTEX_PRIVATE_FLAG = 128;
-
 extern "C" int pthread_once(pthread_once_t* c, void(*init)()) noexcept {
     int s = __atomic_load_n(&c->state, __ATOMIC_ACQUIRE);
     if (s == 2) return 0;

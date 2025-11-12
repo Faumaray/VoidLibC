@@ -6,20 +6,6 @@ import voidlibc.sys.linux;
 import voidlibc.c.memory;
 
 using namespace vl::sys::linux;
-
-static constexpr int FUTEX_WAIT = 0;
-static constexpr int FUTEX_WAKE = 1;
-
-static constexpr unsigned long CLONE_VM      = 0x00000100;
-static constexpr unsigned long CLONE_FS      = 0x00000200;
-static constexpr unsigned long CLONE_FILES   = 0x00000400;
-static constexpr unsigned long CLONE_SIGHAND = 0x00000800;
-static constexpr unsigned long CLONE_THREAD  = 0x00010000;
-static constexpr unsigned long CLONE_SYSVSEM = 0x00040000;
-static constexpr unsigned long CLONE_PARENT_SETTID = 0x00100000;
-static constexpr unsigned long CLONE_CHILD_CLEARTID= 0x00200000;
-static constexpr unsigned long CLONE_CHILD_SETTID  = 0x01000000;
-
 struct ThreadBlock {
   void* (*fn)(void*);
   void*  arg;

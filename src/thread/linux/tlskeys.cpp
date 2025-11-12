@@ -7,10 +7,6 @@ import voidlibc.sys.linux;
 using namespace vl::sys::linux;
 
 static constexpr int MAX_KEYS = 128;
-static constexpr int FUTEX_WAIT = 0;
-static constexpr int FUTEX_WAKE = 1;
-static constexpr int FUTEX_PRIVATE_FLAG = 128;
-
 // Global registry of destructors; 0=free, 1=used
 static int               g_used[MAX_KEYS];
 static void (*g_dtors[MAX_KEYS])(void*);

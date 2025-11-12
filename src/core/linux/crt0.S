@@ -1,4 +1,5 @@
 .section .text
+.extern environ            # add near top
 .globl _start
 .type _start,@function
 _start:
@@ -8,7 +9,7 @@ _start:
   mov   (%rsp), %rdi
   lea   8(%rsp), %rsi
   lea   16(%rsp,%rdi,8), %rdx
-
+  mov   %rdx, environ(%rip)
   # Allocate our own 2 MiB stack
   mov   $9, %rax                  # SYS_mmap
   xor   %rdi, %rdi                # addr = NULL
